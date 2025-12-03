@@ -44,3 +44,12 @@ Thumbs.db
 
 *storybook.log
 storybook-static
+
+# Storybook
+storybook-static/
+documentation.json
+.storybook-out/
+
+# Angular
+dist/
+.angular/
