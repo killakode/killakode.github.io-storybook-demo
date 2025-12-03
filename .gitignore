@@ -46,9 +46,8 @@ Thumbs.db
 storybook-static
 
 # Storybook
-storybook-static/
 documentation.json
-.storybook-out/
+storybook-static/
 
 # Angular
 dist/
