@@ -1,0 +1,12 @@
+<p-button
+  [label]="label"
+  [outlined]="outlined"
+  [severity]="getSeverity()"
+  [disabled]="disabled"
+  [loading]="loading"
+  [icon]="displayIcon"
+  iconPos="left"
+  [loadingIcon]="'pi pi-spin pi-spinner'"
+  [size]="size === 'medium' ? undefined : size"
+  (onClick)="onClick($event)">
+</p-button>

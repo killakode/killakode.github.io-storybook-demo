@@ -1,0 +1,44 @@
+:host ::ng-deep {
+  .p-button {
+    --p-button-gap: 0.5rem;
+    --p-button-lg-padding-y: 0.75rem;
+    --p-button-lg-padding-x: 2.5rem;
+    --p-button-transition-duration: 0.3s;
+
+    &.p-button-outlined {
+      border-width: 0.125rem;
+    }
+  }
+
+  &.p-button-primary {
+    --p-button-padding-x: 1.5rem;
+    --p-button-padding-y: 0.75rem;
+    --p-button-font-size: 1rem;
+    --p-button-line-height: 1.5;
+    --p-button-border-radius: 0.5rem;
+    --p-button-primary-color: rgba(255, 255, 255, 1);
+    --p-button-primary-background: rgba(13, 76, 211, 1);
+    --p-button-primary-border-color: transparent;
+    --p-button-primary-hover-background: rgba(29, 93, 235, 1);
+    --p-button-primary-hover-border-color: transparent;
+    --p-button-primary-hover-color: rgba(255, 255, 255, 1);
+    --p-button-primary-active-border-color: transparent;
+    --p-button-primary-active-color: rgba(255, 255, 255, 1);
+    --p-button-primary-active-background: rgba(11, 64, 179, 1);
+    --p-button-focus-ring-width: 0;
+    --p-disabled-opacity: 1;
+    --p-button-outlined-primary-border-color: rgba(13, 76, 211, 1);
+    --p-button-outlined-primary-color: rgba(13, 76, 211, 1);
+
+    &:not(:disabled) {
+      &:active {
+        --p-button-outlined-primary-border-color: rgba(29, 93, 235, 1);
+        --p-button-outlined-primary-color: rgba(29, 93, 235, 1);
+      }
+      &:hover {
+        --p-button-outlined-primary-border-color: rgba(29, 93, 235, 1);
+        --p-button-outlined-primary-color: rgba(29, 93, 235, 1);
+      }
+    }
+  }
+}

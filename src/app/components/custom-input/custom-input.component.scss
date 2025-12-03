@@ -1,0 +1,47 @@
+:host ::ng-deep {
+  --p-inputtext-filled-hover-background: rgba(245, 247, 250, 1);
+  --p-inputtext-filled-background: rgba(245, 247, 250, 1);
+  --p-inputtext-background: rgba(245, 247, 250, 1);
+  --p-inputtext-border-color: rgba(209, 213, 223, 1);
+  --p-inputtext-hover-border-color: rgba(209, 213, 223, 1);
+  --p-inputtext-disabled-background: rgba(209, 213, 223, 1);
+  --p-inputtext-focus-border-color: rgba(153, 177, 230, 1);
+  --p-inputtext-color: rgba(11, 31, 51, 1);
+  --p-inputtext-padding-x: 1rem;
+  --p-inputtext-padding-y: 0.75rem;
+  --p-inputtext-border-radius: 0.25rem;
+  --p-inputtext-invalid-border-color: rgba(238, 63, 88, 1);
+  --p-floatlabel-over-active-top: -1.2em;
+  --p-floatlabel-active-font-size: 0.875rem;
+  --p-floatlabel-active-font-weight: 400;
+  --p-floatlabel-color: rgba(11, 31, 51, 1);
+  --p-floatlabel-focus-color: var(--p-floatlabel-color);
+  --p-floatlabel-position-x: 0;
+  --p-floatlabel-on-active-background: transparent;
+}
+
+.custom-input-wrapper {
+  padding: 2rem;
+}
+
+.p-iconfield {
+  width: fit-content;
+}
+
+.custom-input-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.p-error {
+  color: #f44336;
+}
+.character-count {
+  color: #666;
+}
+.character-count--max {
+  color: #d32f2f;
+  font-weight: bold;
+}

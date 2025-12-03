@@ -1,0 +1,146 @@
+<div
+  class="custom-input-wrapper"
+  [class.custom-input-wrapper--error]="invalid"
+  [class.custom-input-wrapper--focused]="isFocused"
+  [class.custom-input-wrapper--filled]="value.length > 0"
+  [class.custom-input-wrapper--disabled]="disabled"
+>
+  <!-- С Label (Float Label) -->
+  <ng-container *ngIf="label">
+    <p-floatLabel [variant]="variantLabel">
+      <!-- Если есть иконки — оборачиваем в p-iconfield -->
+      <p-iconfield *ngIf="iconLeft || iconRight || shouldShowClearButton; else simpleInput">
+        <!-- Иконка слева -->
+        <p-inputicon *ngIf="iconLeft" [styleClass]="'pi ' + iconLeft" />
+
+        <!-- Input элемент -->
+        <input
+          #inputElement
+          pInputText
+          [id]="'input-' + label"
+          [type]="type"
+          [(ngModel)]="value"
+          [placeholder]="placeholder"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          [required]="required"
+          [maxlength]="maxLength"
+          [class.p-invalid]="invalid"
+          [class.p-inputtext-sm]="size === 'small'"
+          [class.p-inputtext-lg]="size === 'large'"
+          [class.p-filled]="variant === 'filled'"
+          (input)="onValueChange($event)"
+          (blur)="handleBlur($event)"
+          (focus)="handleFocus($event)"
+        />
+
+        <!-- Кнопка очистки (показывается только если есть значение) -->
+        <p-inputicon
+          *ngIf="shouldShowClearButton"
+          styleClass="pi pi-times cursor-pointer"
+          (click)="clearValue()"
+        />
+
+        <!-- Иконка справа (если нет кнопки очистки) -->
+        <p-inputicon *ngIf="iconRight && !shouldShowClearButton" [styleClass]="'pi ' + iconRight" />
+      </p-iconfield>
+
+      <!-- Простой input без иконок -->
+      <ng-template #simpleInput>
+        <input
+          #inputElement
+          pInputText
+          [id]="'input-' + label"
+          [type]="type"
+          [(ngModel)]="value"
+          [placeholder]="placeholder"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          [required]="required"
+          [maxlength]="maxLength"
+          [class.p-invalid]="invalid"
+          [class.p-inputtext-sm]="size === 'small'"
+          [class.p-inputtext-lg]="size === 'large'"
+          [class.p-filled]="variant === 'filled'"
+          (input)="onValueChange($event)"
+          (blur)="handleBlur($event)"
+          (focus)="handleFocus($event)"
+        />
+      </ng-template>
+
+      <label [for]="'input-' + label">{{ label }}</label>
+    </p-floatLabel>
+  </ng-container>
+
+  <!-- Без Label -->
+  <ng-container *ngIf="!label">
+    <!-- С иконками -->
+    <p-iconfield *ngIf="iconLeft || iconRight || shouldShowClearButton; else simpleInputNoLabel">
+      <p-inputicon *ngIf="iconLeft" [styleClass]="'pi ' + iconLeft" />
+
+      <input
+        #inputElement
+        pInputText
+        [type]="type"
+        [(ngModel)]="value"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [required]="required"
+        [maxlength]="maxLength"
+        [class.p-invalid]="invalid"
+        [class.p-inputtext-sm]="size === 'small'"
+        [class.p-inputtext-lg]="size === 'large'"
+        [class.p-filled]="variant === 'filled'"
+        (input)="onValueChange($event)"
+        (blur)="handleBlur($event)"
+        (focus)="handleFocus($event)"
+      />
+
+      <p-inputicon
+        *ngIf="shouldShowClearButton"
+        styleClass="pi pi-times cursor-pointer"
+        (click)="clearValue()"
+      />
+
+      <p-inputicon *ngIf="iconRight && !shouldShowClearButton" [styleClass]="'pi ' + iconRight" />
+    </p-iconfield>
+
+    <!-- Без иконок -->
+    <ng-template #simpleInputNoLabel>
+      <input
+        #inputElement
+        pInputText
+        [type]="type"
+        [(ngModel)]="value"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [required]="required"
+        [maxlength]="maxLength"
+        [class.p-invalid]="invalid"
+        [class.p-inputtext-sm]="size === 'small'"
+        [class.p-inputtext-lg]="size === 'large'"
+        [class.p-filled]="variant === 'filled'"
+        (input)="onValueChange($event)"
+        (blur)="handleBlur($event)"
+        (focus)="handleFocus($event)"
+      />
+    </ng-template>
+  </ng-container>
+
+  <!-- Нижняя строка: ошибка и счётчик -->
+  <div class="custom-input-footer" *ngIf="(invalid && errorMessage) || showCharacterCount">
+    <small *ngIf="invalid && errorMessage" class="p-error">
+      {{ errorMessage }}
+    </small>
+
+    <small
+      *ngIf="showCharacterCount"
+      class="character-count"
+      [class.character-count--max]="isAtMaxLength"
+    >
+      {{ characterCountText }}
+    </small>
+  </div>
+</div>
